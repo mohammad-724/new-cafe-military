@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   DESIGN TOKENS — South Indian Restaurant Theme
+   Deep Maroon + Warm Gold + Cream
+   ============================================= */
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Core Palette */
+    --background: 0.97 0.012 75;        /* warm cream */
+    --foreground: 0.18 0.04 25;         /* deep dark warm brown */
+
+    --card: 0.99 0.006 75;              /* near-white cream */
+    --card-foreground: 0.18 0.04 25;
+
+    --popover: 0.99 0.006 75;
+    --popover-foreground: 0.18 0.04 25;
+
+    /* Deep Maroon Primary */
+    --primary: 0.38 0.13 15;            /* deep maroon */
+    --primary-foreground: 0.97 0.01 75; /* cream text on maroon */
+
+    /* Warm Gold Accent */
+    --accent: 0.72 0.14 75;             /* warm golden yellow */
+    --accent-foreground: 0.18 0.04 25;  /* dark on gold */
+
+    --secondary: 0.92 0.025 75;         /* light warm beige */
+    --secondary-foreground: 0.38 0.13 15; /* maroon text */
+
+    --muted: 0.93 0.02 75;
+    --muted-foreground: 0.55 0.04 30;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.85 0.03 60;
+    --input: 0.88 0.025 65;
+    --ring: 0.72 0.14 75;
+
+    /* Chart colors */
+    --chart-1: 0.38 0.13 15;
+    --chart-2: 0.72 0.14 75;
+    --chart-3: 0.55 0.1 40;
+    --chart-4: 0.65 0.12 55;
+    --chart-5: 0.48 0.08 20;
+
+    /* Sidebar */
+    --sidebar: 0.38 0.13 15;
+    --sidebar-foreground: 0.97 0.01 75;
+    --sidebar-primary: 0.72 0.14 75;
+    --sidebar-primary-foreground: 0.18 0.04 25;
+    --sidebar-accent: 0.5 0.1 20;
+    --sidebar-accent-foreground: 0.97 0.01 75;
+    --sidebar-border: 0.5 0.1 20;
+    --sidebar-ring: 0.72 0.14 75;
+
+    /* Custom restaurant tokens */
+    --maroon: 0.38 0.13 15;
+    --maroon-dark: 0.28 0.11 15;
+    --maroon-light: 0.5 0.14 18;
+    --gold: 0.72 0.14 75;
+    --gold-dark: 0.62 0.14 70;
+    --gold-light: 0.85 0.1 80;
+    --cream: 0.97 0.012 75;
+    --cream-dark: 0.92 0.025 70;
+    --brown: 0.48 0.08 45;
+  }
+
+  .dark {
+    --background: 0.13 0.02 20;         /* very dark warm brown */
+    --foreground: 0.95 0.015 75;        /* warm off-white */
+
+    --card: 0.18 0.025 20;
+    --card-foreground: 0.95 0.015 75;
+
+    --popover: 0.22 0.03 20;
+    --popover-foreground: 0.95 0.015 75;
+
+    --primary: 0.72 0.14 75;            /* gold becomes primary in dark */
+    --primary-foreground: 0.13 0.02 20;
+
+    --accent: 0.72 0.14 75;
+    --accent-foreground: 0.13 0.02 20;
+
+    --secondary: 0.22 0.03 22;
+    --secondary-foreground: 0.95 0.015 75;
+
+    --muted: 0.25 0.03 22;
+    --muted-foreground: 0.65 0.04 40;
+
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.3 0.04 25;
+    --input: 0.28 0.04 25;
+    --ring: 0.72 0.14 75;
+
+    --chart-1: 0.72 0.14 75;
+    --chart-2: 0.55 0.1 40;
+    --chart-3: 0.65 0.12 55;
+    --chart-4: 0.48 0.08 20;
+    --chart-5: 0.38 0.13 15;
+
+    --sidebar: 0.18 0.025 20;
+    --sidebar-foreground: 0.95 0.015 75;
+    --sidebar-primary: 0.72 0.14 75;
+    --sidebar-primary-foreground: 0.13 0.02 20;
+    --sidebar-accent: 0.25 0.03 22;
+    --sidebar-accent-foreground: 0.95 0.015 75;
+    --sidebar-border: 0.3 0.04 25;
+    --sidebar-ring: 0.72 0.14 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: Georgia, "Times New Roman", serif;
+  }
+}
+
+/* =============================================
+   CUSTOM UTILITIES
+   ============================================= */
+@layer utilities {
+  /* Temple border decorative effect */
+  .temple-border {
+    position: relative;
+    display: inline-block;
+  }
+
+  .temple-border::before,
+  .temple-border::after {
+    content: "❖";
+    color: oklch(var(--gold));
+    font-size: 1rem;
+    margin: 0 0.75rem;
+    opacity: 0.8;
+  }
+
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(var(--gold)) 20%,
+      oklch(var(--maroon)) 50%,
+      oklch(var(--gold)) 80%,
+      transparent
+    );
+    margin: 1rem auto;
+    max-width: 300px;
+  }
+
+  /* Banana leaf pattern background */
+  .banana-leaf-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cellipse cx='40' cy='40' rx='6' ry='24' fill='none' stroke='%23D4A017' stroke-opacity='0.08' stroke-width='1'/%3E%3Cellipse cx='40' cy='40' rx='14' ry='36' fill='none' stroke='%23D4A017' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  /* Mandala/temple pattern */
+  .mandala-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23D4A017' stroke-opacity='0.06' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='10' fill='none' stroke='%23D4A017' stroke-opacity='0.06' stroke-width='1'/%3E%3Cpath d='M30 10 L32 20 L30 30 L28 20 Z' fill='%23D4A017' fill-opacity='0.04'/%3E%3Cpath d='M50 30 L40 32 L30 30 L40 28 Z' fill='%23D4A017' fill-opacity='0.04'/%3E%3Cpath d='M30 50 L28 40 L30 30 L32 40 Z' fill='%23D4A017' fill-opacity='0.04'/%3E%3Cpath d='M10 30 L20 28 L30 30 L20 32 Z' fill='%23D4A017' fill-opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  .gold-text {
+    color: oklch(var(--gold));
+  }
+
+  .maroon-text {
+    color: oklch(var(--maroon));
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, oklch(0.75 0.14 80), oklch(0.62 0.14 70));
+  }
+
+  .maroon-gradient {
+    background: linear-gradient(135deg, oklch(0.42 0.13 18), oklch(0.28 0.11 15));
+  }
+
+  /* Star rating */
+  .star-filled {
+    color: oklch(0.72 0.14 75);
+  }
+
+  .star-empty {
+    color: oklch(0.75 0.02 60);
+  }
+
+  /* Menu card title — gold on hover via group */
+  .menu-card-title {
+    color: oklch(0.95 0.01 80);
+    transition: color 0.25s ease;
+  }
+
+  .group:hover .menu-card-title {
+    color: oklch(0.82 0.12 80);
+  }
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes float-whatsapp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.float-anim {
+  animation: float-whatsapp 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, oklch(0.93 0.02 75) 25%, oklch(0.97 0.012 80) 50%, oklch(0.93 0.02 75) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Popular times bar animation */
+@keyframes grow-bar {
+  from { height: 0; }
+  to { height: var(--bar-height); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.93 0.02 75);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.5 0.12 18);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.38 0.13 15);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: oklch(0.18 0.025 20);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: oklch(0.62 0.14 70);
+}
